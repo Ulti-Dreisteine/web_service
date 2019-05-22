@@ -80,10 +80,7 @@ class TaskCenter(object):
 			job: str, 拉取的任务记录
 		"""
 		job = self._rds.lpop(self._task_name)  # 从序列中左取并删除该任务，原子性操作, 不会产生重复拉取
-		if job is not None:
-			return job
-		elif job is None:
-			return None
+		return job
 
 	def flushall(self):
 		self._rds.flushall()
