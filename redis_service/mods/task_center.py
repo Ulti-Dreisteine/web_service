@@ -10,6 +10,7 @@ import redis
 import yaml
 import time
 import sys
+import random
 
 sys.path.append('../')
 
@@ -80,6 +81,7 @@ class TaskCenter(object):
 		:return:
 			job: str, 拉取的任务记录
 		"""
+		time.sleep(random.random())
 		job = self._rds.lindex(self._task_name, 0)  # 左取一条任务记录
 		if job is not None:
 			if pop:
