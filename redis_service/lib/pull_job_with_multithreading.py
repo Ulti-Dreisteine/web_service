@@ -27,7 +27,7 @@ def worker(worker_num):
 		try:
 			job = task_center.pull_a_job()
 			time.sleep(2)
-			print('worker {}, processing job {}, {} jobs left'.format(worker_num, job, task_center.jobs_count()))
+			print('\nworker {}, processing job {}, {} jobs left'.format(worker_num, job, task_center.jobs_count()))
 		finally:
 			lock.release()
 

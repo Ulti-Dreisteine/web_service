@@ -81,14 +81,11 @@ class TaskCenter(object):
 		:return:
 			job: str, 拉取的任务记录
 		"""
-		time.sleep(random.random())
-		job = self._rds.lindex(self._task_name, 0)  # 左取一条任务记录
+		job = self._rds.lpop(self._task_name)  # 从序列中左取并删除该任务，原子性操作, 不会产生重复拉取
 		if job is not None:
-			if pop:
-				_ = self._rds.blpop(self._task_name)  # 从序列中删除该任务
 			return job
 		elif job is None:
-			return ''
+			return None
 
 	def flushall(self):
 		self._rds.flushall()
@@ -99,6 +96,7 @@ class TaskCenter(object):
 
 redis_config, task_name, jobs_limit = load_redis_config()
 task_center = TaskCenter(redis_config, task_name, jobs_limit)
+
 # task_center.shutdown()
 
 

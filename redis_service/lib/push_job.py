@@ -21,4 +21,3 @@ if __name__ == '__main__':
 		task_center.push_a_job(job_values[i])
 
 	print('total jobs count: {}'.format(task_center.jobs_count()))
-

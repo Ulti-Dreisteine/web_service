@@ -23,11 +23,11 @@ def worker(worker_num):
 	while True:
 		job = task_center.pull_a_job()
 		time.sleep(2)
-		print('worker {}, processing job {}, {} jobs left'.format(worker_num, job, task_center.jobs_count()))
+		print('\nworker {}, processing job {}'.format(worker_num, job))
 
 
 if __name__ == '__main__':
-	workers_num = 2
+	workers_num = 6
 	threads = []
 	for i in range(workers_num):
 		t = threading.Thread(target = worker, args = (i,))
