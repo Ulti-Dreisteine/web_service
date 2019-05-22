@@ -8,6 +8,7 @@ Created on Mon Oct  8 14:32:52 2018
 """
 import redis
 import yaml
+import time
 import sys
 
 sys.path.append('../')
@@ -90,10 +91,13 @@ class TaskCenter(object):
 	def flushall(self):
 		self._rds.flushall()
 
+	def shutdown(self):
+		self._rds.shutdown()
+
 
 redis_config, task_name, jobs_limit = load_redis_config()
 task_center = TaskCenter(redis_config, task_name, jobs_limit)
-task_center.flushall()
+# task_center.shutdown()
 
 
 

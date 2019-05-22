@@ -9,4 +9,4 @@ local_redis_config:
 
 redis_task_params:
   task_name: 'local_test_for_multi_processors'
-  jobs_limit: 2000
+  jobs_limit: 500

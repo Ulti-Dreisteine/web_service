@@ -16,9 +16,9 @@ from mods.task_center import task_center
 
 if __name__ == '__main__':
 	# 向任务中心推送任务
-	job_values = np.arange(100)
+	job_values = np.arange(500)
 	for i in range(len(job_values)):
 		task_center.push_a_job(job_values[i])
 
-	print(task_center.jobs_count())
+	print('total jobs count: {}'.format(task_center.jobs_count()))
 
