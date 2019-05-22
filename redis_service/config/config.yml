@@ -1,0 +1,12 @@
+# Redis服务配置
+redis_loc: 'local_redis_config'
+
+local_redis_config:
+  host: 'localhost'
+  port: 6379
+  decode_responses: True
+  db: 0
+
+redis_task_params:
+  task_name: 'local_test_for_multi_processors'
+  jobs_limit: 2000
