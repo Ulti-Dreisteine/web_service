@@ -8,9 +8,7 @@ Created on Mon Oct  8 14:32:52 2018
 """
 import redis
 import yaml
-import time
 import sys
-import random
 
 sys.path.append('../')
 
@@ -74,7 +72,7 @@ class TaskCenter(object):
 		else:
 			self._rds.rpush(self._task_name, str(job_value))
 
-	def pull_a_job(self, pop = True):
+	def pull_a_job(self):
 		"""
 		拉取job
 		:param pop: bool, 是否同时在任务队列中删除该记录
