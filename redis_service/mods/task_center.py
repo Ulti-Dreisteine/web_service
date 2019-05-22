@@ -86,9 +86,9 @@ class TaskCenter(object):
 		if job is not None:
 			if pop:
 				_ = self._rds.blpop(self._task_name)  # 从序列中删除该任务
-			return job, self._rds.llen(self._task_name)
+			return job
 		elif job is None:
-			return '', self._rds.llen(self._task_name)
+			return ''
 
 	def flushall(self):
 		self._rds.flushall()

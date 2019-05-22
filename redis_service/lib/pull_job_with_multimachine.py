@@ -21,9 +21,9 @@ def worker(worker_num):
 	:return:
 	"""
 	while True:
-		job, jobs_count = task_center.pull_a_job()
+		job = task_center.pull_a_job()
 		time.sleep(2)
-		print('worker {}, processing job {}, {} jobs left'.format(worker_num, job, jobs_count))
+		print('worker {}, processing job {}, {} jobs left'.format(worker_num, job, task_center.jobs_count()))
 
 
 if __name__ == '__main__':
